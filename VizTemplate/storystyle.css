@@ -1,0 +1,59 @@
+html {
+    scroll-behavior: smooth; /* Tells the browser how the scrolling should feel like */
+}
+
+header {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://images.unsplash.com/photo-1555848962-6e79363ec58f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3466&q=80");
+    background-size: cover;
+    background-position: top left; /* Changes the location of the image in the viewport */
+}
+
+h1 {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+}
+
+header a {
+    background: #000;
+    color: #fff;
+    font-size: 1,5rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.scrollContainer {
+    width: 100vw;
+    min-height: 60vw;
+    overflow: hidden;
+}
+
+/* Spacing between each element while scrolling */
+.scrollText {
+    margin: 30vh;
+    max-width: 50rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
+
+#introduction {
+    background-image: url("https://images.unsplash.com/photo-1494172961521-33799ddd43a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3542&q=80");
+    background-attachment: fixed; /* Background image wont move */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.textSection {
+    max-width: 50rem;
+    margin: 0 auto;
+    /* Make sure no blocks can be placed left or right, pushes items below */
+    display: block;
+    clear: both;
+}
