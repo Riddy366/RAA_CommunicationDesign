@@ -31,15 +31,23 @@ header a {
     width: 100vw;
     min-height: 60vw;
     overflow: hidden;
+    transition: background-image 2s;  /* Both images has a smoother transition */
 }
 
 /* Spacing between each element while scrolling */
 .scrollText {
-    margin: 30vh;
+    margin: 50vh auto;
     max-width: 50rem;
     padding: 1rem;
     background: rgba(255, 255, 255, 0.8);
     color: #000;
+}
+
+#changingBg{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #introduction {
@@ -56,4 +64,41 @@ header a {
     /* Make sure no blocks can be placed left or right, pushes items below */
     display: block;
     clear: both;
+}
+
+.alignRight {
+    float: right;
+    margin: 0 0 1rem 1rem;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Makes a circle */
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+
+.redBg {
+    background: #b61010;
+    color: #fff;
+}
+
+.greenBg {
+    background-color: green;
+    color: #fff;
+}
+
+.big {
+    text-align: center;
+    font-size: 4rem;
+    display: block;
+    clear: both;
+}
+
+.small {
+    text-align: center;
+    font-size: 2rem;
+    margin: 0 auto;
+    display: block;
 }
