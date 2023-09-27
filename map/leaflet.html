@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting started with Leaflet</title>
+    <!--https://leafletjs.com/examples/quick-start/-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <style>
+        /* Location of the map*/
+        #firstmap {
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="firstmap"></div>
+
+    <script>
+        // picks up leaflet library (map constructor)
+        const firstmap = L.map("firstmap", {
+            //latitude and longitude
+            center: [59.1294, 11.3537] ,
+            zoom: 15,
+            // disable zoom scroll (not much introduction on leaflet)
+            // does not remove the zoom function
+            scrollWheelZoom: false
+        })
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            // reference NB! IMPORTANT
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(firstmap);
+
+        // add markers. to make the markers visible use "addTo(map variable)"
+        // can use alot of markers in the same map
+        const centerMarker = L.marker([59.1294, 11.3537]).addTo(firstmap)
+    </script>
+</body>
+</html>

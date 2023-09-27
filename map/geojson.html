@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting started with Leaflet</title>
+    <!--https://leafletjs.com/examples/quick-start/-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <style>
+        /* Location of the map*/
+        #firstmap {
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="firstmap"></div>
+
+    <script>
+        // picks up leaflet library (map constructer)
+        const firstmap = L.map("firstmap", {
+            //latitude and longitude
+            center: [59.1294, 11.3537] ,
+            zoom: 15,
+            // disable zoom scroll (not much introduction on leaflet)
+            // does not remove the zoom function
+            scrollWheelZoom: false
+        })
+
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            // reference NB! IMPORTANT
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(firstmap);
+
+        // add markers. to make the markers visible use "addTo(map variable)"
+        // can use alot of markers in the same map
+        const centerMarker = L.marker([59.1294, 11.3537]).addTo(firstmap)
+
+        //Geojson object, made from geojson.io
+        const geoJsonObject = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Employer parking",
+        "content": "40 parking lots"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              11.352699343036306,
+              59.12850876641815
+            ],
+            [
+              11.352173069168941,
+              59.12851305274498
+            ],
+            [
+              11.352323433130266,
+              59.12757433433583
+            ],
+            [
+              11.35279123212456,
+              59.12725713599875
+            ],
+            [
+              11.352699343036306,
+              59.12850876641815
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+      "title": "Student parking"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              11.351511226530448,
+              59.130315766067724
+            ],
+            [
+              11.354181926039274,
+              59.13021136197315
+            ],
+            [
+              11.355390099626817,
+              59.131027010492176
+            ],
+            [
+              11.352477765400465,
+              59.13141198984525
+            ],
+            [
+              11.35291016436878,
+              59.13177738997376
+            ],
+            [
+              11.351536661763816,
+              59.13209711188827
+            ],
+            [
+              11.35111698041274,
+              59.131470715128756
+            ],
+            [
+              11.351167850879449,
+              59.130870407483314
+            ],
+            [
+              11.351511226530448,
+              59.130315766067724
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    }
+  ]
+}
+    // Popup when clicking on marked surface
+    L.geoJson(geoJsonObject, {
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup(feature?.properties?.title)
+      }
+    }).addTo(firstmap)
+    </script>
+</body>
+</html>
